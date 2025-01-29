@@ -1,4 +1,4 @@
-FROM golang:1.23.1-bullseye AS go-builder
+FROM golang:1.23.5-bullseye AS go-builder
 
 # Set Golang environment variables.
 ENV GOPATH=/go
@@ -12,11 +12,7 @@ RUN apt-get install -y $PACKAGES
 # Update ca certs
 RUN update-ca-certificates
 
-# renovate: datasource=github-releases depName=babylonchain/babylon
-ARG VERSION=v1.0.0-rc.3
-
-# for COSMWASM_VERSION check here https://github.com/babylonlabs-io/babylon/blob/dev/go.mod
-ARG COSMWASM_VERSION=v0.53.0
+ARG VERSION=v1.0.0-rc.4
 
 ARG COSMWASM_VM_VERSION=v2.1.3
 
