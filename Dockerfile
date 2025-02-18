@@ -35,7 +35,7 @@ RUN git clone https://github.com/babylonlabs-io/babylon.git \
     && cd babylon \
     && git checkout tags/$VERSION \
     && make build \
-    && make install
+    && BABYLON_BUILD_OPTIONS="testnet" make install
 
 # Final image
 FROM ubuntu:jammy
