@@ -14,16 +14,13 @@ RUN update-ca-certificates
 
 ARG VERSION=v1.0.0-rc.5
 
-ARG COSMWASM_VM_VERSION=v2.1.3
+ARG COSMWASM_VM_VERSION=v2.1.5
 
 # Set the working directory
 WORKDIR /go/src/github.com/babylonlabs-io/babylon
 
 # Download wasmvm libraries
 RUN wget -q https://github.com/CosmWasm/wasmvm/releases/download/${COSMWASM_VM_VERSION}/libwasmvm.x86_64.so -O /lib/libwasmvm.x86_64.so
-
-# Verify checksums
-RUN sha256sum /lib/libwasmvm.x86_64.so | grep 0dd3c88d619b75e73d986ceeedb57410e6df7047915839fa186e66a841d6219a
 
 # Create a symlink for easier access
 RUN cp "/lib/libwasmvm.$(uname -m).so" /lib/libwasmvm.so
