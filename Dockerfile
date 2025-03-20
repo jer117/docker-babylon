@@ -12,7 +12,7 @@ RUN apt-get install -y $PACKAGES
 # Update ca certs
 RUN update-ca-certificates
 
-ARG VERSION=v1.0.0-rc.6-fix-testnet
+ARG VERSION=v1.0.0-rc.6-fix
 
 ARG COSMWASM_VM_VERSION=v2.1.5
 
